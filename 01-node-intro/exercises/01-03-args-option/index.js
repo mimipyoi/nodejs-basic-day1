@@ -2,7 +2,18 @@ import fs from "fs";
 
 const filePath = "data.txt";
 const input = process.argv[2];
+const word = process.argv.slice(3);
 
-fs.appendFileSync(filePath, input + "\n");
+console.log(word)
 
-console.log(input, "was written in", filePath);
+if (input === 'w') {
+    word.map ((index) => {
+        fs.appendFileSync(filePath, index + "\n");
+        console.log( index, "was written in", filePath);
+    })
+} else {
+    console.log('invalid option')
+}
+
+
+
